@@ -1,0 +1,64 @@
+.userBar {
+  width: 66px;
+  min-width: 66px;
+  max-width: 66x;
+  height: 100%;
+  margin-left: auto;
+  background: #0e0e0e;
+}
+
+.btn__wrapper {
+  width: 66px;
+  min-width: 66px;
+  max-width: 66px;
+  height: fit-content;
+  cursor: pointer;
+  /* background: rgba(163, 49, 49, 0.377); */
+}
+
+.userBar__icon {
+  width: 48px;
+  height: 48px;
+  margin-top: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.userBar .container {
+  display: grid;
+  justify-content: center;
+  width: 66px;
+  height: 100%;
+}
+
+.userBar .container .bottom {
+  margin-top: auto;
+  display: grid;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.settings {
+  margin: 0 auto;
+  display: block;
+  width: 24px;
+  height: 24px;
+  padding: 5px;
+  border-radius: 5px;
+  transition: 0.3s filter, 0.3s background;
+  cursor: pointer;
+}
+
+.settings:hover {
+  filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(200%)
+    contrast(119%);
+  background: #ffffff1c;
+}
+
+.userIcon {
+  margin: 0 auto;
+  border-radius: 10px;
+  width: 48px;
+  height: 48px;
+  background-color: #fff;
+}

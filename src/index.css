@@ -1,0 +1,21 @@
+@import url("./style/rest.css");
+
+/* main */
+.mainFrame {
+  user-select: none;
+  display: flex;
+
+  width: 100vw;
+  height: calc(100vh - 30px);
+
+  background: #232323;
+  color: #fff;
+}
+
+.mainWindows {
+  width: calc(100% - 400px);
+}
+
+body {
+  background-color: #232323;
+}

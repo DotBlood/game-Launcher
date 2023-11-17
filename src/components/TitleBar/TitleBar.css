@@ -1,0 +1,77 @@
+.titleBar {
+  background: #202020;
+  width: 100vw;
+  height: 30px;
+  max-height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  -webkit-app-region: drag;
+}
+
+.titleBar .leftPanel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.titleBar .leftPanel .burgerMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 40px;
+  margin-left: 15px;
+  -webkit-app-region: no-drag;
+}
+
+.titleBar .leftPanel .burgerMenu:hover {
+  background: #2b2b2b;
+}
+
+.titleBar .leftPanel .burgerMenu img {
+  width: 20px;
+  height: 20px;
+}
+
+.titleBar .leftPanel .buildInfo {
+  margin-left: 15px;
+  color: #414141;
+}
+
+.titleBar .controlFrame {
+  display: flex;
+  width: 150px;
+  height: 100%;
+  justify-content: space-between;
+  -webkit-app-region: no-drag;
+}
+
+.titleBar .controlFrame .btn img {
+  width: 12px;
+  height: 12px;
+}
+
+.titleBar .controlFrame .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.titleBar .controlFrame .closeScreen:hover {
+  background: rgba(252, 65, 65, 0.514);
+}
+
+.titleBar .btn:hover,
+.titleBar .closeScreen:hover {
+  background: #2b2b2b;
+}
+
+.titleBar .btn:active {
+  background: #4f9fee;
+}

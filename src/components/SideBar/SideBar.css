@@ -1,0 +1,54 @@
+.sideBar {
+  width: 350px;
+  max-width: 350px;
+  min-width: 0px;
+  height: 100%;
+  background: #2b2b2b;
+}
+
+.sideBar .container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.sideBar .container .menu .menu__item {
+  color: #696969;
+  margin-top: 20px;
+  width: 302px;
+  padding: 15px 14px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  cursor: pointer;
+  transition: 0.2s color, 0.2s background-color;
+  user-select: none;
+}
+
+.sideBar .container .menu .menu__item:hover {
+  color: #fff;
+  background-color: #363636;
+}
+.sideBar .container .menu .menu__item:active {
+  color: #c4c4c4;
+  background-color: #505050;
+}
+
+.sideBar .container .menu .menu__item .menu__item-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+.sideBar .container .menu .menu__item .menu__item-text {
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sideBar .container .menu .active {
+  color: #fff;
+  background-color: #363636;
+}
