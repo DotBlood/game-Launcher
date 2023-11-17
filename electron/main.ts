@@ -53,24 +53,23 @@ app.on("activate", () => {
 });
 
 // WINDOW_API
-ipcMain.on("close", () => {
-  if (process.platform !== "darwin") {
-    app.exit();
-  }
-});
-
-ipcMain.on("full", () => {
-  if (win?.isMaximized()) {
-    win.restore();
-  } else {
-    win?.maximize();
-  }
-});
-
-ipcMain.on("hide", (event) => {
-  event.preventDefault();
-  win?.minimize();
-});
+ipcMain
+  .on("close", () => {
+    if (process.platform !== "darwin") {
+      app.exit();
+    }
+  })
+  .on("full", () => {
+    if (win?.isMaximized()) {
+      win.restore();
+    } else {
+      win?.maximize();
+    }
+  })
+  .on("hide", (event) => {
+    event.preventDefault();
+    win?.minimize();
+  });
 
 app
   .whenReady()
