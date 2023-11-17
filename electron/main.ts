@@ -11,7 +11,7 @@ const VITE_DEV_SERVER_URL = process.env["VITE_DEV_SERVER_URL"];
 
 function createWindow() {
   win = new BrowserWindow({
-    icon: path.join(process.env.VITE_PUBLIC, "electron-vite.svg"),
+    icon: path.join(process.env.VITE_PUBLIC, "icon.png"),
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
@@ -39,18 +39,18 @@ function createWindow() {
 }
 
 // APP_API
-app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") {
-    app.quit();
-    win = null;
-  }
-});
-
-app.on("activate", () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  }
-});
+app
+  .on("window-all-closed", () => {
+    if (process.platform !== "darwin") {
+      app.quit();
+      win = null;
+    }
+  })
+  .on("activate", () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+    }
+  });
 
 // WINDOW_API
 ipcMain

@@ -8,12 +8,11 @@ const WINDOW_API = {
   fullScrean: () => ipcRenderer.send("full"),
 };
 
-contextBridge.exposeInMainWorld("api", WINDOW_API);
+contextBridge.exposeInMainWorld("api", withPrototype(WINDOW_API));
 
 // --------- Expose some API to the Renderer process ---------
 contextBridge.exposeInMainWorld("ipcRenderer", withPrototype(ipcRenderer));
 
-// `exposeInMainWorld` can't detect attributes and methods of `prototype`, manually patching it.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function withPrototype(obj: Record<string, any>) {
   const protos = Object.getPrototypeOf(obj);
@@ -22,7 +21,6 @@ function withPrototype(obj: Record<string, any>) {
     if (Object.prototype.hasOwnProperty.call(obj, key)) continue;
 
     if (typeof value === "function") {
-      // Some native APIs, like `NodeJS.EventEmitter['on']`, don't work in the Renderer process. Wrapping them into a function.
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       obj[key] = function (...args: any) {
         return value.call(obj, ...args);
@@ -81,6 +79,7 @@ function useLoading() {
 }
 .${className} > div {
   animation-fill-mode: both;
+  border-raduius: 5px
   width: 50px;
   height: 50px;
   background: #fff;

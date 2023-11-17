@@ -1,7 +1,12 @@
 {
   "name": "game-launcher",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "author": {
+    "name": "Anatoly",
+    "url": "https://github.com/DotBlood",
+    "email": "Tedrip@yandex.ru"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build && electron-builder",
