@@ -1,41 +1,34 @@
+import { NavLink, Link } from "react-router-dom";
 import logo from "../../assets/main/LOGO.svg";
 import Settings from "../../assets/userBar/settings.svg";
 
 import "./userbar.css";
 
-type MenuItemClickHandler = (menuItem: string) => void;
-
-interface SideBarProps {
-    onMenuItemClick: MenuItemClickHandler;
-}
-
-const UserBar: React.FC<SideBarProps> = ({ onMenuItemClick }) => {
+const UserBar: React.FC = () => {
     return (
         <div className="userBar">
             <div className="container">
-                <a
-                    href="https://github.com/DotBlood"
+                <Link
+                    to="https://github.com/DotBlood"
                     className="btn__wrapper"
                     target="_blank"
                     style={{ marginTop: "15px" }}
                 >
                     <img className="userBar__icon" src={logo} alt="Logo" />
-                </a>
+                </Link>
+
                 <ul className="bottom">
-                    <img
-                        className="settings"
-                        src={Settings}
-                        onClick={() => onMenuItemClick("SETTINGS")}
-                    ></img>
-                    <div
+                    <NavLink key="settings" to={"/settings"} className="">
+                        <img className="settings" src={Settings}></img>
+                    </NavLink>
+
+                    <NavLink
+                        key={"accaunt"}
+                        to={"/accaunt"}
                         className="btn__wrapper"
-                        style={{ paddingTop: "5px", paddingBottom: "5px" }}
                     >
-                        <li
-                            className="userIcon"
-                            onClick={() => onMenuItemClick("USER_ACCAUNT")}
-                        ></li>
-                    </div>
+                        <li className="userIcon"></li>
+                    </NavLink>
                 </ul>
             </div>
         </div>

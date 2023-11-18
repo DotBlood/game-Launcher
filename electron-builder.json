@@ -27,7 +27,8 @@
         "oneClick": false,
         "perMachine": false,
         "allowToChangeInstallationDirectory": true,
-        "deleteAppDataOnUninstall": true
+        "deleteAppDataOnUninstall": true,
+        "license": "./public/eula.txt"
     },
     "linux": {
         "icon": "./public/ICON.png",
