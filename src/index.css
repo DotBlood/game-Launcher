@@ -1,4 +1,11 @@
 @import url("./style/rest.css");
+@import url("./style//fonts.css");
+
+body {
+  font-family: 'Inter-Regular', sans-serif;
+  background-color: #232323;
+}
+
 
 /* main */
 .mainFrame {
@@ -16,6 +23,3 @@
   width: calc(100% - 400px);
 }
 
-body {
-  background-color: #232323;
-}

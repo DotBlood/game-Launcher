@@ -5,55 +5,58 @@ import { Config } from "./types/MainConfig";
 import configJson from "./config.json";
 import UserBar from "./components/userBar";
 
-function App() {
-  const config = configJson as Config;
 
-  const [activeMenuItem, setActiveMenuItem] = useState<string>("Магазин");
+const App: React.FC = () => {
+    const config = configJson as Config;
 
-  const handleMenuItemClick = (menuItem: string) => {
-    setActiveMenuItem(menuItem);
-  };
-  let content = null;
-  switch (activeMenuItem) {
-    case "DOWNLOAD":
-      content = <div className="DownloadWindow">DOWNLOAD menu</div>;
-      break;
-    case "SHOP":
-      content = <div className="ShopWindow">SHOP menu</div>;
-      break;
-    case "LIBRARY":
-      content = <div className="MyLibWindow">LIBRARY menu</div>;
-      break;
-    case "SUPPORT":
-      content = <div className="SupportWindow">SUPPORT menu</div>;
-      break;
-    case "SETTINGS":
-      content = <div className="SettingsWindow">SETTINGS menu</div>;
-      break;
-    case "USER_ACCAUNT":
-      content = <div className="UserWindow">USER_ACCAUNT menu</div>;
-      break;
-    default:
-      content = <div className="mainloadWindow">Main menu</div>;
-      break;
-  }
+    const [activeMenuItem, setActiveMenuItem] = useState<string>("LIBRARY");
 
-  return (
-    <>
-      <TitleBar BuildInfo={config.version} />
+    const handleMenuItemClick = (menuItem: string) => {
+        setActiveMenuItem(menuItem);
+    };
 
-      <div className="mainFrame">
-        <SideBar
-          activeMenuItem={activeMenuItem}
-          onMenuItemClick={handleMenuItemClick}
-        />
+    let content = null;
 
-        <div className="mainWindows">{content}</div>
+    switch (activeMenuItem) {
+        case "DOWNLOAD":
+            content = <div className="DownloadWindow">DOWNLOAD menu</div>;
+            break;
+        case "SHOP":
+            content = <div className="ShopWindow">SHOP menu</div>;
+            break;
+        case "LIBRARY":
+            content = <div className="MyLibWindow">LIBRARY menu</div>;
+            break;
+        case "SUPPORT":
+            content = <div className="SupportWindow">SUPPORT menu</div>;
+            break;
+        case "SETTINGS":
+            content = <div className="SettingsWindow">SETTINGS menu</div>;
+            break;
+        case "USER_ACCAUNT":
+            content = <div className="UserWindow">USER_ACCAUNT menu</div>;
+            break;
+        default:
+            content = <div className="mainloadWindow">Main menu</div>;
+            break;
+    }
 
-        <UserBar onMenuItemClick={handleMenuItemClick} />
-      </div>
-    </>
-  );
-}
+    return (
+        <>
+            <TitleBar BuildInfo={config.version} />
+
+            <div className="mainFrame">
+                <SideBar
+                    activeMenuItem={activeMenuItem}
+                    onMenuItemClick={handleMenuItemClick}
+                />
+
+                <div className="mainWindows">{content}</div>
+
+                <UserBar onMenuItemClick={handleMenuItemClick} />
+            </div>
+        </>
+    );
+};
 
 export default App;

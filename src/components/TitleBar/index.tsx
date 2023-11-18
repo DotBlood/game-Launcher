@@ -21,7 +21,7 @@ interface WINAPI extends Window {
 const TitleBar: React.FC<TitleBarProps> = ({ BuildInfo }) => {
   const [leftMenu, setLeftMenu] = useState<boolean>(true);
   const [update, setUpdate] = useState<string | null>(null);
-
+  
   const hide = () => {
     (window as unknown as WINAPI).api.hide();
   };
@@ -58,7 +58,7 @@ const TitleBar: React.FC<TitleBarProps> = ({ BuildInfo }) => {
         });
         setTimeout(() => {
           sideBar.hidden = true;
-        }, 120);
+        }, 119);
       } else {
         showSideBar();
         sideBar.hidden = false;

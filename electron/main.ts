@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain } from "electron";
+import { app, BrowserWindow, globalShortcut, ipcMain } from "electron";
 import path from "node:path";
 process.env.DIST = path.join(__dirname, "../dist");
 process.env.VITE_PUBLIC = app.isPackaged
@@ -22,11 +22,6 @@ function createWindow() {
     minHeight: 600,
   });
 
-  // Test active push message to Renderer-process.
-  win.webContents.on("did-finish-load", () => {
-    win?.webContents.send("main-process-message", new Date().toLocaleString());
-  });
-
   if (VITE_DEV_SERVER_URL) {
     win.webContents.openDevTools();
     win.loadURL(VITE_DEV_SERVER_URL);
@@ -37,6 +32,8 @@ function createWindow() {
 
   win.on("ready-to-show", win.show);
 }
+
+
 
 // APP_API
 app
@@ -73,6 +70,11 @@ ipcMain
 
 app
   .whenReady()
+  .then(() => {
+    globalShortcut.register('F11', () => {
+      return false;
+    })
+  })
   .then(createWindow)
   .catch((e) => {
     console.error(e);

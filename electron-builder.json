@@ -1,42 +1,37 @@
 {
-  "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
-  "appId": "github.com.DotBlood",
-  "asar": true,
-  "productName": "GL",
-  "directories": {
-    "output": "release/${version}"
-  },
-  "files": [
-    "dist",
-    "dist-electron"
-  ],
-  "mac": {
-    "target": [
-      "dmg"
-    ],
-    "artifactName": "${productName}-Mac-${version}-Installer.${ext}"
-  },
-  "win": {
-    "target": [
-      {
-        "target": "nsis",
-        "arch": [
-          "x64"
-        ]
-      }
-    ],
-    "artifactName": "${productName}-Windows-${version}-Setup.${ext}"
-  },
-  "nsis": {
-    "oneClick": false,
-    "perMachine": false,
-    "allowToChangeInstallationDirectory": true,
-    "deleteAppDataOnUninstall": false
-  },
-  "linux": {
-    "target": [
-      "AppImage"
-    ],
-    "artifactName": "${productName}-Linux-${version}.${ext}"
-  }
+    "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
+    "appId": "github.com.DotBlood",
+    "asar": true,
+    "productName": "GL",
+    "copyright": "Copyright © 2023 ${author}",
+    "directories": {
+        "output": "release/0.0.1"
+    },
+    "files": ["dist", "dist-electron"],
+    "mac": {
+        "icon": "./public/ICON.png",
+        "target": ["dmg"],
+        "artifactName": "${productName}-Mac-${version}-Installer.${ext}"
+    },
+    "win": {
+        "icon": "./public/ICON_256x256.png",
+        "target": [
+            {
+                "target": "nsis",
+                "arch": ["x64"]
+            }
+        ],
+        "artifactName": "${productName}-Windows-${version}-Setup.${ext}"
+    },
+    "nsis": {
+        "oneClick": false,
+        "perMachine": false,
+        "allowToChangeInstallationDirectory": true,
+        "deleteAppDataOnUninstall": true
+    },
+    "linux": {
+        "icon": "./public/ICON.png",
+        "target": ["AppImage"],
+        "artifactName": "${productName}-Linux-${version}.${ext}"
+    }
 }

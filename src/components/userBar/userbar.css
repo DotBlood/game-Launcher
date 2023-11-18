@@ -13,15 +13,15 @@
   max-width: 66px;
   height: fit-content;
   cursor: pointer;
-  /* background: rgba(163, 49, 49, 0.377); */
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
 .userBar__icon {
   width: 48px;
   height: 48px;
-  margin-top: 15px;
   padding-top: 5px;
-  padding-bottom: 5px;
 }
 
 .userBar .container {
